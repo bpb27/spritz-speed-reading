@@ -39,7 +39,7 @@ class ReaderController < ApplicationController
 					broker[count] = ""
 					broker[count] += entry.to_s.gsub(/\[([^\]]+)\]/, "")
 				else
-					broker[count] += entry.to_s.gsub(/\[([^\]]+)\]/, "")
+					broker[count] += " " + entry.to_s.gsub(/\[([^\]]+)\]/, "")
 				end
 			else
 				count += 1
