@@ -115,7 +115,7 @@ $(document).ready(function(){
             
             //BUTTONS AND SLIDER FUNCTIONS ---------------------------------
             var clicker = true;
-            $('#book2').click(function(){
+            $('#reader-div').click(function(){
                if(clicker == true){
                   intervalID = window.setInterval(changeup, wpm);
                   $('#wpm').addClass('fade');
@@ -155,25 +155,24 @@ $(document).ready(function(){
 });//END OF JQUERY
 
 </script>
-
-<div id="log-box2">
-<br>
-<form action="/reader/wiki" id="new-link" method="post">
-   <%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
-   <label>Topic:</label><br>
-   <input id="searcher" type="text" name="link">
-   <input type="submit" value="Go" id="convert">
-</form>
+<div class="container" id="search-div">
+   <form action="/reader/wiki" id="new-link" method="post">
+      <%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+      <label>Topic:</label><br>
+      <input id="searcher" type="text" name="link">
+      <input type="submit" value="Go" id="convert">
+   </form>
 </div>
 
-<div id="book2">
-   <div id="topbar" class="bar-small"></div>
-   <div id="reading-bar">
-      <div id="first-half"><b><p><span id="one">T</span></p></div><div id="second-half"><p><span id="two" class="red">h</span><span id="three">addeus</p></b></div>
-   </div>
-   <div id="bottombar" class="bar-small"></div>
-</div><!--end book -->
-<div id="controls2">
+<div class="container" id="reader-div">
+      <div id="topbar" class="bar-small"></div>
+      <div id="reading-bar">
+         <div id="first-half"><b><p><span id="one">T</span></p></div><div id="second-half"><p><span id="two" class="red">h</span><span id="three">addeus</p></b></div>
+      </div>
+      <div id="bottombar" class="bar-small"></div>
+</div>
+
+<div class="container" id="control-div">
    <button class="controls" id="color-tog">red</button>
    <button class="controls" id="clear-btn">restart</button>
    <select id="wpm2">

@@ -8,6 +8,7 @@ class ReaderController < ApplicationController
   	end
 
   	def wikireader_mobile
+  		render :layout => "mobilelayout"
   	end
 
   	def wiki
@@ -59,5 +60,7 @@ class ReaderController < ApplicationController
 	end
 
 end
+
+# end
 
 
