@@ -1,0 +1,193 @@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    
+   $('#footnotes_debug').remove();
+
+   //SEARCH BOX ---------------------------------
+   $('#minimize').hide();
+   $('#minimize').click(function(){
+      $(this).fadeOut();
+      $('#new-link').fadeIn();
+   })
+   
+   //RED BUTTON ---------------------------------
+   var color = "red";
+   $('#color-tog').click(function(){
+      if(color == "red"){
+         $('#two').removeClass();
+         color = "black";
+      }
+      else{
+         $('#two').addClass('red');
+         color = "red";
+      } 
+   })
+
+
+   
+   //BEGINNING AJAX
+   $('#new-link').on('submit', function(){
+      
+      var maxnum = 1;
+      var article = "";
+      var counter = 0;
+
+      $.post(
+         $(this).attr('action'),
+         $(this).serialize(),
+         function(data){
+
+            //CHANGEUP FUNCTION ---------------------------------
+            var wpm = 200;
+            article = data.message;
+
+            $('select').change(function(){
+               wpm = $('select option:selected').attr('value');
+            });
+
+            words = article.split(' ');
+
+            var intervalID = 0;
+
+            function changeup(){
+               var word = words[counter];
+               
+               var part1 = '';
+               var part2 = '';
+               var redlet = '';
+
+               if(word.length == 0){
+                  part1 = ' ';
+                  part2 = ' ';
+                  redlet = ' ';
+               }
+               
+               else if(word.length == 1){
+                  redlet = word;
+               }
+               
+               else if(word.length == 2){;
+                  part1 = word[0];
+                  redlet = word[1];
+               }
+               
+               else if(word[1] == 'h'){
+                  part1 = word[0];
+                  redlet = word[1];
+                  for (var i = 2; i < word.length; i++) {
+                     part2 = part2 + word[i];
+                  }; 
+               }
+               
+               else{
+                 
+                  for (var i = 0; i < word.length; i++) {
+                     if(i < word.length / 4){
+                        part1 += word[i];
+                     }
+                     else{
+                        part2 += word[i];
+                     }
+                  };
+                 
+                  redlet = part2[0];
+                  part2 = part2.slice(1, part2.length);
+              
+               }
+
+               $('#one').text(part1);
+               $('#two').text(redlet);
+               $('#three').text(part2);
+                  
+               counter += 1;
+
+               if(counter === words.length){
+                  console.log('DONE!');
+                  window.clearInterval(intervalID)
+               }
+               
+            }//END OF CHANGEUP         
+               
+            
+            //BUTTONS AND SLIDER FUNCTIONS ---------------------------------
+            var clicker = true;
+            $('#book2').click(function(){
+               if(clicker == true){
+                  intervalID = window.setInterval(changeup, wpm);
+                  $('#wpm').addClass('fade');
+                  clicker = false;
+               }
+               else{
+                  window.clearInterval(intervalID);
+                  $('#wpm').removeClass('fade');
+                  clicker = true;
+               }
+            })
+
+            $('#clear-btn').click(function(){
+               article = "";
+               counter = 0;
+               $('#one').text("");
+               $('#two').text("");
+               $('#three').text("");
+            });
+
+            
+            // $('#new-link').fadeOut();
+            // $('#minimize').fadeIn();
+            $('#searcher').val("");
+
+
+         },//END SUCCESS FUNCTION
+         
+         "json"
+      
+      );//END POST
+
+      return false;
+                    
+   })//END AJAX   
+
+});//END OF JQUERY
+
+</script>
+
+<div id="log-box2">
+<br>
+<form action="/reader/wiki" id="new-link" method="post">
+   <%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+   <label>Topic:</label><br>
+   <input id="searcher" type="text" name="link">
+   <input type="submit" value="Go" id="convert">
+</form>
+</div>
+
+<div id="book2">
+   <div id="topbar" class="bar-small"></div>
+   <div id="reading-bar">
+      <div id="first-half"><b><p><span id="one">T</span></p></div><div id="second-half"><p><span id="two" class="red">h</span><span id="three">addeus</p></b></div>
+   </div>
+   <div id="bottombar" class="bar-small"></div>
+</div><!--end book -->
+<div id="controls2">
+   <button class="controls" id="color-tog">red</button>
+   <button class="controls" id="clear-btn">restart</button>
+   <select id="wpm2">
+      <option value="500">Slow</option>
+      <option selected value="268">220wpm</option>
+      <option value="200">300wpm</option>
+      <option value="150">400wpm</option>
+      <option value="120">500wpm</option>
+      <option value="100">600wpm</option>
+      <option value="85">700wpm</option>
+      <option value="75">800wpm</option>
+      <option value="67">900wpm</option>
+      <option value="60">1000wpm</option>
+   </select>  
+</div>
+
+

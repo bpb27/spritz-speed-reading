@@ -7,6 +7,9 @@ class ReaderController < ApplicationController
   	def wikireader
   	end
 
+  	def wikireader_mobile
+  	end
+
   	def wiki
   		
   		link = ""

@@ -2,6 +2,7 @@ BbProject::Application.routes.draw do
   get "books/home"
   post "reader/wiki"
   get "reader/wikireader"
+  get "reader/wikireader_mobile"
   get "reader/index"
   get '/reader/:id', to: 'reader#index', as: 'reading'
   resources :books
