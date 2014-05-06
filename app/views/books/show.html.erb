@@ -1,0 +1,24 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>Chapter:</strong>
+  <%= @book.chapter %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @book.content %>
+</p>
+<a href="/reader/<%= @book.id %>">Literate</a>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
+
+</div
+<div id="footnotes_holder"></div>

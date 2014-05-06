@@ -1,0 +1,160 @@
+
+
+body{
+	background-color: #E4DBBF;
+	width: 1000px;
+}
+
+label{
+	font-family: 'Domine', serif;
+}
+
+input[type=text]{
+	width: 315px;
+	background-color: #FEEED4;
+	border: none;
+	border-bottom: 3px solid black;
+	margin-right: 65px;
+}
+
+#log-box{
+	margin-left: 298px;
+}
+
+#convert{
+	background-color: #FEEED4;
+	border: none;
+	border-radius: 10px;
+	width: 50px;
+	height: 20px;
+	font-family: 'Domine', serif;
+}
+
+#minimize{
+	background-color: #ABA19B;
+	border-radius: 0px;
+	width: 30px;
+	height: 30px;
+	border: none;
+	opacity: 0.5;
+	font-weight: 700;
+}
+
+#controls{
+	width: 90px;
+	height: 100px;
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 95px;
+	opacity: 1;
+/*	border: 3px solid black;*/
+}
+
+.fade{
+	opacity: 0.1;
+}
+
+#play{
+	display: inline-block;
+	vertical-align: top;
+	background-color: #FEEED4;
+	height: 52px;
+	width: 88px;
+	border: none;
+	border-radius: 20px;
+	margin-bottom: 12px;
+}
+
+#play img{
+	height: 50px;
+	width: 50px;
+}
+
+select{
+	margin-bottom: 10px;
+	background-color: #FEEED4;
+   	line-height: 1;
+   	border: 0;
+   	border-radius: 0;
+   	height: 30px;
+/*   	-webkit-appearance: none;*/
+}
+
+p{
+	margin: 0px;
+	padding: 11px;
+	font-family: 'Domine', serif;
+	font-size: 26px;
+/*	font-weight: 700;*/
+}
+
+#book{
+	display: inline-block;
+	width: 310px;
+	height: 85px;
+	background-color: #FEEED4;
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+	margin-left: 300px;
+	margin-top: 100px;
+	margin-right: 50px;
+}
+
+#reading-bar{
+	height: 55px;
+}
+
+.bar-small{
+	display: inline-block;
+	height: 15px;
+	width: 100px;
+	border-right: 3px solid black;
+}
+
+#first-half{
+	display: inline-block;
+	text-align: right;
+	width: 95px
+}
+
+#first-half p{
+	display: inline-block;
+	text-align: right;
+	padding-right: 0px;	
+}
+
+#second-half{
+	display: inline-block;
+	text-align: left;
+}
+
+#second-half p{
+	display: inline-block;
+	text-align: left;
+	padding-left: 0px;
+}
+
+.red{
+	color: #B20000;
+}
+
+.controls{
+	border: none;
+	background-color: #FEEED4;
+	border-radius: 5px;
+	opacity: 0.4;
+}
+
+#slider-range-min{
+	opacity: 0.2;
+	margin-bottom: 15px;
+}
+
+#menu{
+	width: 200px;
+}
+
+.menu-button{
+	font-size: 10px;
+	width: 198px;
+}
