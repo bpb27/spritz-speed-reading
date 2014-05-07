@@ -229,46 +229,50 @@ $(document).ready(function(){
 </script>
 
 <div id="slider-range-min"></div>
-<div id="button-box">
-   <button class="controls" id="color-tog">red</button>
-   <button class="controls" id="clear-btn">clear</button>
-   <button class="controls" id="hide-menu">menu</button>
+
+<div id="menu-frame">
+   <div id="menu-box"></div>
 </div>
 
-<div id="menu-box"></div>
+<div id="main-page-container">
+   <div id="log-box">
+   <button id="minimize">^</button>
+   <br>
+   <form action="/reader/wiki" id="new-link" method="post">
+      <%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
+      <label>Topic:</label><br>
+      <input type="text" name="link">
+      <input type="submit" value="Go" id="convert">
+   </form>
+   </div>
 
-<div id="log-box">
-<button id="minimize">^</button>
-<br>
-<form action="/reader/wiki" id="new-link" method="post">
-   <%= tag(:input,:type =>"hidden",:name => request_forgery_protection_token.to_s,:value => form_authenticity_token)%>
-   <label>Topic:</label><br>
-   <input type="text" name="link">
-   <input type="submit" value="Go" id="convert">
-</form>
-</div>
-
-<div id="book">
-	<div id="topbar" class="bar-small"></div>
-	<div id="reading-bar">
-		<div id="first-half"><b><p><span id="one">T</span></p></div><div id="second-half"><p><span id="two" class="red">h</span><span id="three">addeus</p></b></div>
-	</div>
-	<div id="bottombar" class="bar-small"></div>
-</div><!--end book -->
-<div id="controls">
-   <button id="play"><%= image_tag "books.png" %></button>
-   <select id="wpm">
-      <option value="500">Slow</option>
-      <option selected value="268">220wpm</option>
-      <option value="200">300wpm</option>
-      <option value="150">400wpm</option>
-      <option value="120">500wpm</option>
-      <option value="100">600wpm</option>
-      <option value="85">700wpm</option>
-      <option value="75">800wpm</option>
-      <option value="67">900wpm</option>
-      <option value="60">1000wpm</option>
-   </select>  
+   <div id="book">
+   	<div id="topbar" class="bar-small"></div>
+   	<div id="reading-bar">
+   		<div id="first-half"><b><p><span id="one">T</span></p></div><div id="second-half"><p><span id="two" class="red">h</span><span id="three">addeus</p></b></div>
+   	</div>
+   	<div id="bottombar" class="bar-small"></div>
+   </div><!--end book -->
+   <div id="controls">
+      <button id="play"><%= image_tag "books.png" %></button>
+      <select id="wpm">
+         <option value="500">Slow</option>
+         <option selected value="268">220wpm</option>
+         <option value="200">300wpm</option>
+         <option value="150">400wpm</option>
+         <option value="120">500wpm</option>
+         <option value="100">600wpm</option>
+         <option value="85">700wpm</option>
+         <option value="75">800wpm</option>
+         <option value="67">900wpm</option>
+         <option value="60">1000wpm</option>
+      </select> 
+      <div id="button-box">
+         <button class="controls" id="color-tog">red</button>
+         <button class="controls" id="clear-btn">clear</button>
+         <button class="controls" id="hide-menu">menu</button>
+      </div>
+   </div>
 </div>
 
 
