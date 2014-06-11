@@ -129,8 +129,11 @@ $(document).ready(function(){
             var maxnum = words.length;
 
             var counter = 0;
-            var wpm = 268;
             
+            if(!wpm){
+               var wpm = 268;
+            }
+         
             $('select').change(function(){
                wpm = $('select option:selected').attr('value');
             }); 
@@ -165,42 +168,9 @@ $(document).ready(function(){
                if(words.length != counter){
                   changeup(words, counter);
                   counter += 1;
-               }  
+               }
+               //console.log(words[counter]); 
             }
-            
-
-            
-
-            //ABANDONED SLIDER WASTELAND
-
-            // $( "#slider-range-min" ).slider( "option", "value", counter );
-            // $( "#amount").val(counter);
-            
-
-            // var uiTrack = 0;
-            // $( "#slider-range-min" ).slider({
-            //    range: "min",
-            //    value: counter,
-            //    min: 0,
-            //    max: maxnum,
-            //    slide: function( event, ui ) {
-            //       if(ui.value > uiTrack){
-            //          uiTrack = ui.value;
-            //          changeup();
-            //       }
-            //       if(ui.value < uiTrack){
-            //          counter -= 2;
-            //          changeup();
-            //          uiTrack = ui.value;
-            //       }
-
-            //    }
-
-            // });
-         
-            // $( "#amount" ).val( $( "#slider-range-min" ).slider( "value" ) );
-
-            
 
          },//END SUCCESS FUNCTION
          
@@ -215,8 +185,6 @@ $(document).ready(function(){
 });//END OF JQUERY
 
 </script>
-
-<div id="slider-range-min"></div>
 
 <div id="menu-frame">
    <div id="menu-box"></div>
